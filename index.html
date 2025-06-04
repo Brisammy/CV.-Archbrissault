@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Jude-Simon Brissault | Architecte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #c4a267;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #777;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d253f 100%);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .header-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--secondary);
+        }
+
+        .pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.05) 75%),
+                linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.05) 75%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 25px;
+            bottom: -25px;
+            width: 2px;
+            background: #ddd;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-subtitle {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 i {
+            color: var(--secondary);
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .language-item {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .language-item h4 {
+            margin-bottom: 10px;
+        }
+
+        .language-level {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .reference-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .reference-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .reference-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .reference-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .reference-position {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .reference-contact {
+            margin-top: 15px;
+        }
+
+        .reference-contact div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        /* Interests */
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .interest-item {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+            border: 2px solid var(--secondary);
+        }
+
+        .download-btn:hover {
+            background: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content h2 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid, .reference-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="pattern"></div>
+        <div class="container header-content">
+            <h1>Jude-Simon BRISSAULT</h1>
+            <h2>Architecte Indépendant / Freelance</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>34707671</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>sammybrissault@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>16, 3A Delmas 75, Rue Catalpa, Haïti</span>
+                </div>
+            </div>
+            
+            <a href="#" class="download-btn">
+                <i class="fas fa-download"></i> Télécharger le CV
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Formation Académique -->
+        <section>
+            <h2 class="section-title">Formation Académique</h2>
+            
+            <div class="card">
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov. 2018 – Juil. 2023</div>
+                    <h3 class="timeline-title">Licence en Architecture & Informatique appliquée</h3>
+                    <div class="timeline-subtitle">Université GOC, Nazon, Haïti</div>
+                    <p>Formation complète en architecture avec spécialisation en informatique appliquée à la conception architecturale.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expérience Professionnelle -->
+        <section>
+            <h2 class="section-title">Expérience Professionnelle</h2>
+            
+            <div class="card">
+                <div class="timeline-item">
+                    <div class="timeline-date">Avril 2023 – Présent</div>
+                    <h3 class="timeline-title">Architecte Indépendant / Freelance</h3>
+                    <div class="timeline-subtitle">Port-au-Prince, Les Cayes, Cap-Haïtien</div>
+                    <ul>
+                        <li>Accueil et accompagnement des clients: identification des besoins en construction ou en réaménagement</li>
+                        <li>Conception architecturale complète pour projets résidentiels, commerciaux et institutionnels</li>
+                        <li>Analyse de site et faisabilité: étude de terrain et relevés topographiques</li>
+                        <li>Modélisation 3D et rendus réalistes avec SketchUp, Lumion et AutoCAD</li>
+                        <li>Études techniques et sélection des matériaux adaptés au climat local</li>
+                        <li>Préparation des dossiers administratifs pour permis de construire</li>
+                        <li>Suivi et supervision des chantiers</li>
+                        <li>Coordination avec ingénieurs et autres professionnels</li>
+                        <li>Gestion de projet: planification, respect des échéances et suivi budgétaire</li>
+                        <li>Service après-projet: accompagnement post-livraison</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Avril 2023 – Juin 2023</div>
+                    <h3 class="timeline-title">Architecte Métier (Stage professionnel)</h3>
+                    <div class="timeline-subtitle">Ville des Cayes – Client privé</div>
+                    <ul>
+                        <li>Élaboration de plans d'architecture résidentiels et commerciaux</li>
+                        <li>Analyse du site et propositions d'adaptations aux contraintes environnementales</li>
+                        <li>Modélisation 3D de projets avec SketchUp et Lumion</li>
+                        <li>Réalisation de perspectives et rendus pour présentation au client</li>
+                        <li>Suivi de chantier et supervision de l'exécution selon les plans</li>
+                        <li>Collaboration avec ingénieurs et autres professionnels</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences Techniques -->
+        <section>
+            <h2 class="section-title">Compétences Techniques</h2>
+            
+            <div class="card">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-laptop"></i> Logiciels</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>AutoCAD</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>SketchUp</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Lumion</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Microsoft Office</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-drafting-compass"></i> Compétences Architecturales</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Conception de plans</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Analyse de site</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Rendu 3D</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Gestion de projet</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Langues Parlées -->
+        <section>
+            <h2 class="section-title">Langues Parlées</h2>
+            
+            <div class="card">
+                <div class="languages">
+                    <div class="language-item">
+                        <h4>Créole</h4>
+                        <div class="language-level">Courant</div>
+                    </div>
+                    <div class="language-item">
+                        <h4>Français</h4>
+                        <div class="language-level">Courant</div>
+                    </div>
+                    <div class="language-item">
+                        <h4>Anglais</h4>
+                        <div class="language-level">Bon niveau</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Réalisations -->
+        <section>
+            <h2 class="section-title">Réalisations</h2>
+            
+            <div class="card">
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Projet hôtelier dans le Sud d'Haïti</h3>
+                    <ul>
+                        <li>Études préliminaires et esquisses conceptuelles</li>
+                        <li>Rendus photoréalistes pour présentation au client</li>
+                        <li>Planification initiale et organisation du chantier</li>
+                        <li>Coordination avec les ingénieurs structure et MEP</li>
+                        <li>Conception d'espaces adaptés au climat tropical</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificats -->
+        <section>
+            <h2 class="section-title">Certificats</h2>
+            
+            <div class="card">
+                <div class="timeline-item">
+                    <div class="timeline-date">25 juillet 2023</div>
+                    <h3 class="timeline-title">Diplôme de fin d'études universitaires en architecture</h3>
+                    <div class="timeline-subtitle">Université GOC, Nazon, Haïti</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Centres d'Intérêt -->
+        <section>
+            <h2 class="section-title">Centres d'Intérêt</h2>
+            
+            <div class="card">
+                <div class="interests">
+                    <div class="interest-item">Design d'intérieur</div>
+                    <div class="interest-item">Architecture contemporaine</div>
+                    <div class="interest-item">Sports d'équipe</div>
+                    <div class="interest-item">Activités en plein air</div>
+                    <div class="interest-item">Voyages culturels</div>
+                    <div class="interest-item">Photographie d'architecture</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Références -->
+        <section>
+            <h2 class="section-title">Références</h2>
+            
+            <div class="reference-grid">
+                <div class="reference-card">
+                    <div class="reference-header">
+                        <div class="reference-avatar">TJ</div>
+                        <div class="reference-info">
+                            <h3>Tingué Junior</h3>
+                            <div class="reference-position">Directeur de l'organisation AGENOFOUNDATION</div>
+                        </div>
+                    </div>
+                    <div class="reference-contact">
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>3816 0153</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>agenofoundation@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reference-card">
+                    <div class="reference-header">
+                        <div class="reference-avatar">RD</div>
+                        <div class="reference-info">
+                            <h3>Référence Disponible</h3>
+                            <div class="reference-position">Sur demande</div>
+                        </div>
+                    </div>
+                    <div class="reference-contact">
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>sammybrissault@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Jude-Simon BRISSAULT &copy; 2023 - Architecte Professionnel</p>
+            <p class="copyright">Toutes les informations fournies dans ce CV sont exactes et vérifiables</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Animation for skill bars
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-level');
+            
+            // Animate skill bars on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.style.width;
+                        entry.target.style.width = '0';
+                        setTimeout(() => {
+                            entry.target.style.transition = 'width 1.5s ease-in-out';
+                            entry.target.style.width = width;
+                        }, 300);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+            
+            // PDF Download button functionality
+            const downloadBtn = document.querySelector('.download-btn');
+            downloadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('La fonction de téléchargement du PDF sera implémentée ici');
+                // In a real implementation, this would download the PDF version
+            });
+        });
+    </script>
+</body>
+</html>
